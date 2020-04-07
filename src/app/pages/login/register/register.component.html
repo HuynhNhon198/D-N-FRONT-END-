@@ -1,0 +1,56 @@
+<div nz-row nzType="flex" nzAlign="middle">
+    <div nz-col nzSpan="8" nzOffset="14">
+        <i class="close" title="Đăng Nhập" (click)="close()" nz-icon nzType="close-circle" nzTheme="fill"></i>
+        <h1 class="title">OnMATH 4.0</h1>
+        <p style="text-align: center;margin-bottom: 20px;">Giải pháp học tập trực tuyến hiệu quả, nhanh chóng, chính xác.</p>
+
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Họ và Tên</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Không được để trống trường này!">
+                    <input #ipfocus  style="text-transform: capitalize" nz-input formControlName="name" id="name" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Vui lòng nhập đúng định dạng email!">
+                    <input #ipfocus nz-input formControlName="email" id="email" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Mật Khẩu</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Mật khẩu phải có tối thiểu 6 kí tự!">
+                    <input nz-input type="password" id="password" formControlName="password"
+                        (ngModelChange)="updateConfirmValidator()" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Nhập Lại Mật Khẩu</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+                    <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+                    <ng-template #errorTpl let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Không được để trống trường này!
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('confirm')">
+                            Mật khẩu không khớp!
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row class="register-area">
+                <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                    <label nz-checkbox formControlName="agree">
+                        <span>Tôi đồng ý với </span>
+                    </label><a>Điều Khoản Sử Dụng</a>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row class="register-area">
+                <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                    <button nz-button nzType="primary" nzBlock>ĐĂNG KÍ TAÌ KHOẢN</button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>
+
+</div>

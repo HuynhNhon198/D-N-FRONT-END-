@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "du-an-4bf5f": {
+      "hosting": {
+        "DuAn": [
+          "du-an-4bf5f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "du-an-4bf5f"
+  }
+}

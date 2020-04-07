@@ -1,0 +1,49 @@
+.ant-row-flex {
+    height: 100%;
+    background-image: url("../../../../assets/cover2.png");
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: left;
+    background-repeat: no-repeat;
+    & > .ant-col.ant-col-8 {
+      padding: 24px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0px 3px 81px 20px #00000017;
+      [nz-form] {
+        max-width: 600px;
+      }
+
+      .phone-select {
+        width: 70px;
+      }
+
+      .register-are {
+        margin-bottom: 8px;
+      }
+    }
+
+    h1.title {
+        font-family: 'Baloo 2', cursive;
+        text-align: center;
+        font-size: 45px;
+        line-height: 50px;
+        color: #096dd9;
+        margin: 10px;
+    }
+
+    i.close {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        font-size: 20px;
+        color: #9e0f0f61;
+        cursor: pointer;
+        &:hover {
+            color: #9e0f0fce;
+        }
+    }
+  }
+  
+
+  

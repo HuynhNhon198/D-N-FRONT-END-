@@ -1,0 +1,46 @@
+<div nz-row nzType="flex" nzAlign="middle" *ngIf="login; else register">
+    <div nz-col nzSpan="4" nzOffset="14">
+        <h1 class="title">OnMATH 4.0</h1>
+        <p style="text-align: center; margin-bottom: 24px;">Giải pháp học tập trực tuyến hiệu quả, nhanh chóng, chính xác.</p>
+
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Vui lòng nhập email đăng nhập">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input #ipFocus type="email" nz-input formControlName="email" placeholder="Email Đăng Nhập" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Vui lòng nhập mật khẩu!">
+                    <nz-input-group nzPrefixIcon="lock">
+                        <input type="password" nz-input formControlName="password" placeholder="Mật Khẩu" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <label nz-checkbox formControlName="remember">
+                        <span>Nhớ tài khoản</span>
+                    </label>
+                    <a (click)="resetPassword()" class="login-form-forgot" class="login-form-forgot">Quên mật khẩu</a>
+                    <button nz-button class="login-form-button" [nzType]="'primary'">ĐĂNG NHẬP</button>
+                    <div nz-row nzJustify="space-between" nzType="flex">
+                        <div nz-col nzSpan="11">
+                            <button nz-tooltip nzTooltipTitle="ĐĂNG NHẬP BẰNG GOOGLE" nzTooltipPlacement="bottom" (click)="authSV.googleLogin()" type='button' class='google' nz-button
+                                nzType="default" nzBlock>GOOGLE</button>
+                        </div>
+                        <div nz-col nzSpan="11">
+                            <button nz-tooltip nzTooltipTitle="TẠO TÀI KHOẢN" nzTooltipPlacement="bottom" (click)="login=false" type='button' class='register' nz-button nzType="default" nzBlock><i nz-icon
+                                    nzType="form" nzTheme="outline"></i>ĐĂNG KÍ</button>
+                        </div>
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>
+    
+</div>
+<ng-template #register>
+    <app-register></app-register>
+</ng-template>

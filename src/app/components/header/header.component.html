@@ -1,0 +1,10 @@
+<nz-page-header-extra>
+    <div *ngIf="auth.user | async as user;" nz-popover [nzPopoverContent]="contentTemplate">
+        <nz-avatar nzIcon="user" [nzSrc]="user.photoURL" style="margin-right: 10px;"></nz-avatar>
+        <b>{{user.displayName!==null?user.displayName:user.email }}</b>
+    </div>
+</nz-page-header-extra>
+
+<ng-template #contentTemplate>
+    <button (click)="auth.auth.signOut()" nz-button nzType="danger">ĐĂNG XUẤT</button>
+</ng-template>
