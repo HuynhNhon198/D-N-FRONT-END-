@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
+import { QuillModule } from 'ngx-quill';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -20,6 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { environment } from 'src/environments/environment.prod';
 import { RegisterComponent } from './pages/login/register/register.component';
+import { HomeComponent } from './pages/home/home.component';
 
 registerLocaleData(en);
 
@@ -28,9 +31,11 @@ registerLocaleData(en);
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
   ],
   imports: [
+    QuillModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     IconsProviderModule,
@@ -41,7 +46,7 @@ registerLocaleData(en);
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [AngularFireAuthGuard, { provide: NZ_I18N, useValue: vi_VN }],
   bootstrap: [AppComponent]
